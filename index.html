@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kage</title>
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+    <nav class="navbar">
+       <h1><span>K</span>age.</h1>
+
+        <ul>
+            <li><a href="#"><span>H</span>ome</a></li>
+            <li><a href="#hobby"><span>H</span>obby</a></li>
+			<li><a href="#video"><span>V</span>ideo</a></li>
+			<li><a href="#tournament"><span>T</span>ournament</a></li>
+            <li><a href="#contact"><span>C</span>ontact</a></li>
+
+        </ul>
+    </nav>
+    <section class="home">
+        <div class="home-info">
+            <h1><span data-text="John Lloyd Neo">John Lloyd Neo</span></h1>
+     
+        </div>
+
+
+        <div class="home-img">
+            <div class="img-box">
+                <div class="img-item">
+                    <img src="image/bg.png" alt="">
+                    
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+<!--hobby-->
+<div id="hobby">
+	<div class="container">
+		<div class="row">
+			<div class="about-col-1">
+				<img src="image/ako.jpg">
+			</div>
+			<div class="about-col-2">
+				<h1 class="sub-title">My hobby is
+				<span style="--i:4;" data-text="playing online games">playing online games</span>
+				<span style="--i:3;" data-text="watching anime">watching anime</span>
+				<span style="--i:2;" data-text="watching kdrama">watching kdrama</span>
+				<span style="--i:1;" data-text="watching tiktok">watching tiktok</span>
+				</h1>
+				
+				<div class="tab-titles">
+					<p class="tab-links active-link" onclick="opentab('Online games')">Online games</p>
+					<p class="tab-links" onclick="opentab('Anime')">Anime</p>
+					<p class="tab-links" onclick="opentab('Kdrama')">Kdrama</p>
+				</div>
+				<div class="tab-contents active-tab" id="Online games">
+					<ul>
+						<li><span>Mobile Legends</span></li>
+					</ul>
+					<ul>
+						<li><span>Dota</span></li>
+					</ul>
+					<ul>
+						<li><span>Call of Duty</span></li>
+					</ul>
+					<ul>
+						<li><span>Crossfire</span></li>
+					</ul>
+		
+				</div>
+				<div class="tab-contents" id="Anime">
+					<ul>
+						<li><span>Black Clover</span></li>
+					</ul>
+					<ul>
+						<li><span>Fairy Tail</span></li>
+					</ul>
+					<ul>
+						<li><span>Your Name</span></li>
+					</ul>
+					<ul>
+						<li><span>Classroom of Elite</span></li>
+					</ul>
+				</div>
+				<div class="tab-contents" id="Kdrama">
+					<ul>
+						<li><span>Alice in Borderland</span></li>
+					</ul>
+					<ul>
+						<li><span>Queen of Tears</span></li>
+					</ul>
+					<ul>
+						<li><span>Big Mouth</span></li>
+					</ul>
+					<ul>
+						<li><span>Healer</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+<script>
+	
+	var tablinks = document.getElementsByClassName("tab-links");
+	var tabcontents = document.getElementsByClassName("tab-contents");
+
+	function opentab(tabname){
+		for(tablink of tablinks){
+			tablink.classList.remove("active-link");
+		}
+		for(tabcontent of tabcontents){
+			tabcontent.classList.remove("active-tab");
+		}
+		event.currentTarget.classList.add("active-link");
+		document.getElementById(tabname).classList.add("active-tab");
+	}
+</script>
+<!----video--->
+<div id="video">
+<div class="container">
+	<div class="video-info">
+	<h1><span>V</span>ideo</h1>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="feature-img">
+			<img src="image/lingimg.jpg" width="100%">
+			<img src="image/play.png" class="play-btn" 
+			onclick="playVideo('video/ling.mp4')">
+			</div>
+		</div>
+		<div class="col">
+			<div class="small-img-row">
+				<div class="small-img">
+					<img src="image/harithimg.jpg">
+					<img src="image/play.png" class="play-btn"
+					onclick="playVideo('video/harith.mp4')">
+				</div>
+				<p>Harith</p>
+			</div>
+			<div class="small-img-row">
+				<div class="small-img">
+					<img src="image/hayabusaimg.jpg">
+					<img src="image/play.png" class="play-btn"
+					onclick="playVideo('video/hayabusa.mp4')">
+				</div>
+				<p>Hayabusa</p>
+			</div>
+			<div class="small-img-row">
+				<div class="small-img">
+					<img src="image/selenaimg.jpg">
+					<img src="image/play.png" class="play-btn"
+					onclick="playVideo('video/selena.mp4')">
+				</div>
+				<p>Selena</p>
+			</div>
+		</div>	
+	</div>
+</div>
+<div class="video-player" id="videoPlayer">
+	<video width="100%" controls autoplay id="myVideo">
+		<source src="video/ling.mp4" type="video/mp4">
+	</video>
+	<img src="image/close.png" class="close-btn" 
+	onclick="stopVideo()">
+</div>
+<div class="video-player" id="videoPlayer">
+	<video width="100%" controls autoplay id="myVideo">
+		<source src="harith.mp4" type="video/mp4">
+	</video>
+	<img src="image/close.png" class="close-btn" 
+	onclick="stopVideo()">
+</div>
+</div>
+<script>
+	var videoPlayer = document.getElementById("videoPlayer");
+	var myVideo = document.getElementById("myVideo");
+	
+	function stopVideo(){
+		videoPlayer.style.display= "none";
+		myVideo.pause();
+		myVideo.currentTime = 0;
+	
+	}
+	function playVideo(file){
+		myVideo.src = file;
+		videoPlayer.style.display ="block";
+		myVideo.pause();
+		myVideo.currentTime = 0;
+		}
+</script>
+<!--tournament--->
+<div id="tournament">
+<div class="pict">
+<input type="radio" name="Photos" id="check1" checked>
+<input type="radio" name="Photos" id="check2">
+<input type="radio" name="Photos" id="check3">
+<input type="radio" name="Photos" id="check4">
+<div class="container1">
+	<h1><span>T</span>ournament</h1>
+	<div class="top-content">
+		<label for="check1">All picture</label>
+		<label for="check2">Face to face tournament</label>
+		<label for="check3">Online tournament</label>
+		<label for="check4">Barangay tournament</label>
+	</div>
+	<div class="photo-gallery">
+		<div class="pic ftf">
+			<img src="image/ftf1.jpg">
+		</div>
+		<div class="pic ot">
+			<img src="image/ot1.jpg">
+		</div>
+		<div class="pic brg">
+			<img src="image/brg1.jpg">
+		</div>
+			<div class="pic ftf">
+			<img src="image/ftf2.jpg">
+		</div>
+		<div class="pic ot">
+			<img src="image/ot2.jpg">
+		</div>
+		<div class="pic brg">
+			<img src="image/brg2.jpg">
+		</div>
+			<div class="pic ftf">
+			<img src="image/ftf3.jpg">
+		</div>
+		<div class="pic ot">
+			<img src="image/ot3.jpg">
+		</div>
+		<div class="pic brg">
+			<img src="image/brg3.jpg">
+		</div>
+			<div class="pic ftf">
+			<img src="image/ftf4.jpg">
+		</div>
+		<div class="pic ot">
+			<img src="image/ot4.jpg">
+		</div>
+		<div class="pic brg">
+			<img src="image/brg4.jpg">
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!---contact--->
+<div id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="contact-left">
+				<h1 class="sub-title"><span>C</span>ontact <span>M</span>e</h1>
+				<p><img src="image/paperplane.png" alt=" ">johnnicksneo@gmail.com</p>
+				<p><img src="image/phone.png" alt=" ">09977367807</p>
+				<div class="social-icons">
+					<a href="https://www.facebook.com/johnlloyd.neo.1232"><img src="image/fblogo.png" alt=" ">
+					<a href="https://www.instagram.com/kagenotcage"><img src="image/instalogo.png" alt=" ">
+					<a href="https://www.tiktok.com/@kagelangto"><img src="image/ttlogo.png" alt=" ">
+				</div>
+				<a href= "#" class="btn btn2">Back to homepage</a>
+			</div>
+			<div class="contact-right">
+				<form name="submit-to-google-sheet">
+					<input type="text" name="Name" placeholder="Your Name" required>
+					<input type="email" name="Email" placeholder="Your Email" required>
+					<textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+					<button type="submit" class="btn btn2">Submit</button>
+				</form>
+				<span id="msg"></span>
+		</div>
+	</div>
+</div>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzNVlWEElBbiMiUEy8hmNCS6ObrsrugpChBEz27en_ye0k_A-ZcktPla4R8_l3UH8NEcQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+			msg.innerHTML = "Message sent successfully"
+			setTimeout(function(){
+				msg.innerHTML = " "
+			},5000)
+			form.reset()
+	  })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
+
+
+</body>
+</html>
